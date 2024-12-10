@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Newspaper Layout</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .heading-1 {
+      font-size: 50px;
+      text-transform: uppercase;
+      color: crimson;
+    }
+    .sub-heading {
+      font-size: 18px;
+      color: #555;
+      margin-top: 5px;
+    }
+    .sub-heading span {
+      font-weight: bold;
+    }
+    .main {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .home {
+      flex: 2;
+    }
+    .home-img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .latest-news {
+      flex: 1;
+    }
+    .heading-2 {
+      font-size: 30px;
+      color: #333;
+      margin-top: 10px;
+    }
+    .lists {
+  display: grid;
+  grid-template-columns: 1fr; /* Ensure proper stacking on small screens */
+  gap: 20px; /* Space between lists */
+}
+
+.list {
+  display: grid;
+  grid-template-columns: 80px 1fr; /* Fixed image width */
+  gap: 10px; /* Space between image and text */
+  align-items: center; /* Vertical alignment */
+}
+
+.list img {
+  width: 80px; /* Fixed width for all images */
+  height: 80px; /* Fixed height for all images */
+  object-fit: cover; /* Ensures image fills the space without distortion */
+  border-radius: 5px; /* Optional rounded corners */
+}
+
+    .list p {
+      font-size: 16px;
+      color: #555;
+    }
+    article {
+      margin-top: 30px;
+    }
+    article > p {
+      margin-bottom: 20px;
+      text-align: justify;
+    }
+    blockquote {
+      font-size: 18px;
+      background: #f2f2f2;
+      padding: 20px;
+      border-left: 5px solid crimson;
+      margin: 30px 0;
+    }
+   
+.cards {
+  display:flex;
+
+  gap: 20px; /* Space between cards */
+  margin: 20px;
+}
+
+.card {
+  border: 1px solid #ccc; /* Subtle border */
+  border-radius: 10px; /* Rounded corners */
+  padding: 20px; /* Inner spacing */
+  background: #f9f9f9; /* Light background */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.heading-4 {
+  font-size: 1.5rem; /* Larger heading size */
+  margin-bottom: 10px;
+  color: #333; /* Darker text color for the heading */
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666; /* Subtle text color for the paragraph */
+}
+
+    .events {
+      margin-top: 50px;
+    }
+    .events h2 {
+      font-size: 30px;
+      text-align: center;
+      margin-bottom: 20px;
+      color: crimson;
+    }
+    .event-item {
+      margin-bottom: 20px;
+    }
+    .event-item h4 {
+      font-size: 20px;
+      margin-bottom: 5px;
+      color: #333;
+    }
+    .event-item p {
+      font-size: 16px;
+      color: #555;
+    }
+    /* Media query for tablet (max-width: 768px) */
+@media (max-width: 768px) {
+  .card {
+    width: 45%; /* Adjust card width for smaller screens */
+  }
+}
+
+/* Media query for mobile (max-width: 480px) */
+@media (max-width: 480px) {
+  .cards {
+    gap: 10px; /* Reduce gap between cards */
+    justify-content: center; 
+    display:block;/* Center cards on small screens */
+  }
+
+  .card {
+    width: 90%; /* Make cards take up most of the width on mobile */
+    margin: 10px 0; /* Add spacing between cards */
+  }
+}
+   
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="heading-1">The Light Star</h1>
+      <p class="sub-heading">Saturday, <span>November 18, 2024</span> | <span>Your Right to Know</span></p>
+    </header>
+
+    <div class="main">
+      <div class="home">
+        <img src="images/news.jpg" class="home-img" alt="Main News">
+        <h2 class="heading-2">Breaking News: Major Milestone Achieved in Space Exploration</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate laboriosam temporibus quae! Dolores suscipit earum deserunt eveniet perferendis pariatur distinctio.</p>
+      </div>
+
+      <div class="latest-news">
+        <h3 class="heading-2">Latest News</h3>
+        <div class="lists">
+          <div class="list">
+            <img src="images/list-img-1.jpg" alt="News 1">
+            <p>Climate change summit brings nations together to discuss global solutions.</p>
+          </div>
+          <div class="list">
+            <img src="images/list-img-2.jpg" alt="News 2">
+            <p>Local community unites to rebuild after devastating floods.</p>
+          </div>
+          <div class="list">
+            <img src="images/list-img-3 (1).jpg" alt="News 3">
+            <p>Tech giant announces groundbreaking innovation in AI technology.</p>
+          </div>
+          <div class="list">
+            <img src="images/list-img-4.jpg" alt="News 4">
+            <p>Historic election results bring new leadership to the forefront.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <article>
+      <p>The recent advancements in space exploration have brought humanity one step closer to understanding the universe. Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis, optio?</p>
+      <p>Furthermore, efforts to address climate change are gaining momentum as nations collaborate on solutions. Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, eveniet.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque adipisci fuga quod aspernatur dolorum, obcaecati impedit?</p>
+    </article>
+
+    <blockquote>
+      "The only way to predict the future is to create it." - Abraham Lincoln
+    </blockquote>
+
+    <!-- <div class="cards">
+      <div class="card">
+        <h4>Health & Wellness</h4>
+        <p>Discover the latest tips and advice to maintain a healthy lifestyle. Lorem ipsum dolor sit amet.</p>
+      </div>
+      <div class="card">
+        <h4>Technology</h4>
+        <p>Explore how innovations in technology are shaping the future. Lorem ipsum dolor sit amet consectetur.</p>
+      </div>
+      <div class="card">
+        <h4>Entertainment</h4>
+        <p>Get the scoop on the hottest movies, shows, and celebrity news. Lorem ipsum dolor sit amet.</p>
+      </div>
+    </div> -->
+    <div class="cards">
+      <div class="card">
+        <h4 class="heading-4">Event 1</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis inventore consectetur eveniet assumenda distinctio vero delectus.</p>
+      </div>
+    
+      <div class="card">
+        <h4 class="heading-4">Event 2</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores voluptate ullam exercitationem, optio doloribus, eius possimus modi odio esse nobis earum cumque quia perferendis quo. Distinctio ullam libero provident atque excepturi cupiditate, autem commodi tempora sed, consequuntur dolore corrupti reprehenderit.</p>
+      </div>
+    
+      <div class="card">
+        <h4 class="heading-4">Event 3</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam suscipit corrupti consequuntur nostrum illum alias accusantium sit magni. Eaque libero soluta nam vitae sequi, sapiente quis.</p>
+      </div>
+    </div>
+    
+    <div class="events">
+      <h2>Upcoming Events</h2>
+      <div class="event-item">
+        <h4>Global Tech Conference 2024</h4>
+        <p>December 15, 2024 - Join leading tech experts in discussing the future of technology.</p>
+      </div>
+      <div class="event-item">
+        <h4>Community Cleanup Drive</h4>
+        <p>November 25, 2024 - Participate in our efforts to make the environment cleaner.</p>
+      </div>
+      <div class="event-item">
+        <h4>Annual Charity Gala</h4>
+        <p>January 10, 2025 - Support a great cause at our annual charity gala.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

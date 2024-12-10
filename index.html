@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css"> <!-- Link your CSS here -->
+</head>
+
+  
+
+  
+<!-- Navbar -->
+<nav>
+  <div class="container">
+    <!-- Hamburger Icon for Mobile Screens (on the left) -->
+    <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+    <!-- Logo -->
+    <h2><a href="#" class="logo" style=" font-family: 'Work Sans';font-size: 22px">GR Network</a></h2> <br>
+    <!-- Navigation Links (Sidebar) -->
+    <ul class="nav-links">
+      <!-- Close Icon on the Right Side -->
+      <span class="close-icon" onclick="toggleMenu()">&times;</span>
+      
+        <li><a href="#recent" onclick="toggleMenu()">Recent Events and Activities</a></li>
+        <li><a href="#wrapper" onclick="toggleMenu()">Events Gallery</a></li>
+        <li><a href="futurevent.html" onclick="toggleMenu()">Future Events</a></li>
+         <li><a href="#foot"onclick="toggleMenu()">About us</a></li>
+    </ul>
+   
+  </div>
+</nav>
+  <!-- Hero Section -->
+  <section class="hero-section" style="background-image: url('https://i.ibb.co/8Dw3HDN/conference.jpg'); background-size: cover; background-position: center; height: 100vh;">
+    <div>
+      <h1>Join Our Amazing Event!</h1>
+      <p>Learn, network, and grow with the industry's best.</p>
+      <a href="#" class="cta-btn">Learn More</a>
+     
+    </div>
+</section>
+
+<!--course-->
+
+
+<main>
+    <h1 class="section-heading" id="recent">Recent Events and Activities</h1>
+    <div class="blog-container">
+        <!-- Blog Card 1 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">Guides</span>
+                <span class="date">November 19, 2024</span>
+                <h2>How to Create a Website Using HTML and CSS</h2>
+            </div>
+        </div>
+        <!-- Blog Card 2 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">Comparisons</span>
+                <span class="date">October 18, 2024</span>
+                <h2>How much does eCommerce Website Development Cost?</h2>
+            </div>
+        </div>
+        <!-- Blog Card 3 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">Guides</span>
+                <span class="date">October 18, 2024</span>
+                <h2>5 Best AI Content Generators for 2024</h2>
+            </div>
+        </div>
+        <!-- Blog Card 4 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">Guides</span>
+                <span class="date">October 18, 2024</span>
+                <h2>5 Best AI Tools for Marketing to Grow You</h2>
+            </div>
+        </div>
+        <!-- Blog Card 5 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">Updates</span>
+                <span class="date">November 10, 2024</span>
+                <h2>New Trends in Web Development for 2024</h2>
+            </div>
+        </div>
+        <!-- Blog Card 6 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">News</span>
+                <span class="date">November 12, 2024</span>
+                <h2>Breaking: AI Revolutionizes Content Creation</h2>
+            </div>
+        </div>
+        <!-- Blog Card 7 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">Workshops</span>
+                <span class="date">November 14, 2024</span>
+                <h2>Join Our Free HTML and CSS Workshop</h2>
+            </div>
+        </div>
+        <!-- Blog Card 8 -->
+        <a href="news.html" class="blog-link">
+        <div class="blog-card">
+            <img src="images/course-1.jpg" alt="Blog Image">
+            <div class="blog-content">
+                <span class="category">Tips</span>
+                <span class="date">November 15, 2024</span>
+                <h2>Top 10 Web Design Tips for Beginners</h2>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div id="wrapper">
+    <div class="container">
+        <h1>Events Gallery</h1>
+        <div class="gallery">
+            <figure class="card">
+                <img src="images/data.jpeg" alt="">
+                <figcaption>Stunning Data Visualizations</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/full.jpeg" alt="">
+                <figcaption>Full-Stack Development</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/web.jpeg" alt="">
+                <figcaption>Creative Web Designs</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/blog_5.jpg" alt="">
+                <figcaption>Modern Blog Layouts</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/event4.jpeg" alt="">
+                <figcaption>Interactive Prototypes</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/event5.jpeg" alt="">
+                <figcaption>Responsive Interfaces</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/event3.jpeg" alt="">
+                <figcaption>Innovative UI/UX</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/web.jpeg" alt="">
+                <figcaption>Real-World Projects</figcaption>
+            </figure>
+            <figure class="card">
+                <img src="images/data.jpeg" alt="">
+                <figcaption>Pixel-Perfect Designs</figcaption>
+            </figure>
+        </div>
+    </div>
+
+
+
+  
+</head>
+<body>
+    <footer class="footer" id="foot">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h2>Quick Link</h2>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">FAQs & Help</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li>Location, City, Country</li>
+                        <li>+012 345 67890</li>
+                        <li>gowthamraj@example.com</li>
+                    </ul>
+                    <div class="social-icons">
+                        <a href="#"><img src="images/instagram.jpeg" alt="Twitter"></a>
+                        <a href="#"><img src="images/facebook.png" alt="Facebook"></a>
+                        <a href="#"><img src="images/u tube.png" alt="YouTube"></a>
+                        <a href="#"><img src="images/linkedin.png" alt="LinkedIn"></a>
+                    </div>
+                </div>
+                
+                <div class="footer-section newsletter">
+                    <h2>Newsletter</h2>
+                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <form>
+                        <input type="email" placeholder="Your email" aria-label="Your email">
+                        <button type="submit">SignUp</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy;2024 - Present  GR Network. All rights reserved.</p>
+               
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+<script>
+    // Toggle the menu when the hamburger icon is clicked
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('open');
+    }
+    
+    // Close the menu when a link is clicked
+    function closeMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.remove('open');
+    }
+    
+    
+    function toggleMenu() {
+      const navLinks = document.querySelector('.nav-links');
+      navLinks.classList.toggle('open'); // Toggle the open class to show/hide sidebar
+    }</script>

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Event Page</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+</head>
+<style>
+body {
+    font-family: 'system-ui', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  img {
+    max-width: 100%;
+    display: block;
+  }
+  
+  a {
+    text-decoration: none;
+    /* color: inherit; */
+    font-size: 18px;
+  }
+  /* Navbar Styling */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    background-color: white;
+    border-bottom: 1px solid black;
+  }
+  
+  nav .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  /* Styling for Hamburger Icon */
+  .hamburger {
+    display: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #18191a;
+    transition: all 0.3s ease;
+  }
+  
+  .hamburger:hover {
+    color: #6366f1;
+  }
+  
+  /* Navigation Links Styling */
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+  }
+  
+  nav ul li a {
+    padding: 8px 16px;
+    color: #18191a;
+    transition: color 0.3s ease, background-color 0.3s ease;
+  }
+  
+  nav ul li a:hover {
+    color: white;
+    background-color:#4f46e5;
+    border-radius: 5px;
+  }
+  
+  /* Register Button Styling */
+  nav .register-btn {
+    background-color: #4f46e5;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+  }
+  
+  nav .register-btn:hover {
+    background-color: #4338ca;
+  }
+  
+  
+  
+  /* Close Icon at the Top Right */
+  .close-icon {
+    font-size: 1.8rem;
+    color: #ffffff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  
+  
+  /* Mobile View (below 480px) */
+  @media screen and (max-width: 480px) {
+  
+    /* Sidebar Navigation */
+    nav ul {
+      background-color: #2c3e50;
+      display: none;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 320px;
+      height: 100vh;
+      color: white;
+      padding-top: 60px;
+      padding-left: 20px;
+      box-shadow: 2px 0 12px rgba(0, 0, 0, 0.4);
+      transform: translateX(-100%);
+      transition: transform 0.4s ease;
+    }
+  
+    /* Show the sidebar when the 'open' class is added */
+    nav ul.open {
+      display: flex;
+      transform: translateX(0);
+    }
+  
+    /* Hamburger icon */
+    .hamburger {
+      display: block;
+      position: absolute;
+    
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #141111;
+    }
+  
+    /* Logo on the right */
+    .logo {
+    padding-left: 200px;
+      color:#4f46e5;
+     
+    }
+  
+    /* Navigation Link Styles */
+    .nav-links li {
+      list-style: none;
+      margin: 10px 0; /* Reduced gap between links */
+    }
+  
+    .nav-links li a {
+      display: block;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      color: #ecf0f1;
+      text-decoration: none;
+      background-color: transparent;
+      border-left: 4px solid transparent;
+      transition: background-color 0.3s, border-left-color 0.3s;
+    }
+  
+    /* Highlight effect on hover and active link */
+    .nav-links li a:hover, 
+    .nav-links li a.active {
+      background-color: #34495e;
+      border-left-color: #1abc9c;
+      color: #ffffff;
+    }
+  
+    /* Register button hidden in mobile */
+    nav .register-btn {
+      display: none;
+    }
+   
+  
+  }
+  /* Learning Section Styles */
+  .learning-section {
+    background-color: #0f172a;
+    text-align: center;
+    padding: 50px 20px;
+  }
+  
+  .learning-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+  }
+  
+  .learning-section p {
+    font-size: 18px;
+    color: #525559;
+    margin-bottom: 40px;
+    justify-content: center;
+  }
+  
+  /* Updated Card Styles for Better Content Alignment */
+  .card {
+    background-color: white;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Align the content vertically */
+    text-align: center; /* Align the content horizontally */
+  }
+  
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .card h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px 0;
+    padding: 0 15px;
+    color: #111827; /* Dark gray text */
+  }
+  
+  .card p {
+    font-size: 16px;
+    padding: 0 15px 20px 15px;
+    color: #6b7280; /* Lighter gray text */
+    line-height: 1.6; /* Improve readability with more spacing between lines */
+  }
+  
+  /* Flex properties ensure the content is aligned */
+  .cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .cta-section {
+    background-color: #4f46e5; /* bg-indigo-500 */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px;
+  }
+  
+  .cta-section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-section p {
+    font-size: 1.25rem;
+  }
+  
+  .cta-section button {
+    background-color: white;
+    color: black;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1.25rem;
+  }
+  
+  .cta-section button:hover {
+    background-color: #f3f4f6; /* hover:bg-gray-100 */
+    color: #1f2937; /* hover:text-gray-900 */
+  }
+  
+  /* About the Host Section Styles */
+  #host {
+    background-color: #f7f7f7;
+    padding: 60px 0;
+    text-align: center;
+    padding-left: 200px;
+  }
+  
+  #host h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: rgb(56, 31, 200);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  #host p {
+    font-size: 1.2rem;
+    color: #000000;
+    margin-bottom: 30px; /* Slight reduction in bottom margin */
+  }
+  
+  #host .host-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 32px;
+  }
+  
+  #host img {
+    border-radius: 12px;
+    max-width: 350px;
+    height: auto;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    margin: 0 auto;
+  }
+  
+  #host .host-info {
+    text-align: left;
+    max-width: 600px;
+    margin: 0; /* Removed unnecessary margin */
+  }
+  
+  #host .host-info h3 {
+    font-size: 2.2rem;
+    color: rgb(56, 31, 200);
+    margin-bottom: 10px; /* Reduced margin to bring text closer */
+  }
+  
+  #host .host-info p {
+    font-size: 1.1rem;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 10px; /* Reduced the margin for paragraphs */
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: start;
+    align-items: center;
+    margin-top: 10px; /* Reduced top margin */
+  }
+  
+  .social-icons img {
+   
+    transition: transform 0.3s ease;
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.1);
+  }
+  
+/* Stats Section */
+.stats-section {
+  background-color: #f1f5f9; /* Slate-100 equivalent */
+  padding: 40px 20px; /* Adjust for spacing */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* Stat Card */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #e5e7eb; /* Gray-200 equivalent */
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6366f1; /* Indigo-500 equivalent */
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 10px;
+  color: #374151; /* Dark gray text */
+}
+
+/* Responsive Design */
+@media (min-width: 640px) {
+  .stat-value {
+    font-size: 28px;
+  }
+
+  .stat-label {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 768px) {
+  .stat-value {
+    font-size: 32px;
+  }
+}
+
+  /* Testimonials section */
+  .testimonials-section {
+    padding: 50px 0;
+    background-color: #fff;
+  }
+  
+  .testimonials-section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  
+  .testimonials-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .testimonial {
+    background-color: #e0e0e0;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+  }
+  
+  .testimonial img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    display: inline;
+  }
+  
+  .testimonial p {
+    font-size: 18px;
+  }
+  
+  .testimonial .author {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+  
+  /* Benefits Section */
+  .benefits-section {
+    padding: 50px 20px;
+    background-color: #fff;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+    color: #777;
+    margin-top: 10px;
+  }
+  
+  /* Feature Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .feature-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .icon {
+    width: 50px;
+    height: 50px;
+    background-color: #4f46e5;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+  
+  .icon-svg {
+    width: 25px;
+    height: 25px;
+    fill: white;
+  }
+  
+  .text-content {
+    text-align: center;
+  }
+  
+  .feature-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .feature-description {
+    font-size: 1rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  .link {
+    display: inline-block;
+    margin-top: 15px;
+    color: #4f46e5;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Contact Section Styling */
+  .contact {
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+   
+  }
+  
+  .heading {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #1c1b1b;
+    margin-bottom: 40px;
+  }
+  
+  .heading span {
+    color: #4f46e5;
+  }
+  
+  .row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .map {
+    flex: 1 1 45%;
+    width: 100%;
+    height: 450px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(79, 73, 73, 0.1);
+  }
+  
+  form {
+    flex: 1 1 45%;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  form h3 {
+    font-size: 2rem;
+    color: #09090a;
+    margin-bottom: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    color: #121010;
+    font-size: 1rem;
+    margin-bottom: 5px;
+    text-align: left;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
+    background: #f2f2f2;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .btn {
+    background-color: #4f46e5;
+    color: white;
+    font-size: 1.2rem;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 50%;
+  }
+  
+  .btn:hover {
+    background-color: #150bd6;
+  }
+  
+  :root {
+    --main-color: #4f46e5;
+    --border: .1rem solid rgba(255,255,255,.3);
+    
+  }
+  /* Media query for screens smaller than or equal to 480px */
+  @media (max-width: 480px) {
+    /* About the Host Section */
+    #host {
+      padding: 20px; /* Reduce padding for smaller screens */
+      text-align: center; /* Center all text content */
+    }
+  
+    #host .host-container {
+      display: flex;
+      flex-direction: column; /* Stack elements vertically */
+      align-items: center; /* Center the content */
+      padding: 0; /* Remove extra padding */
+    }
+  
+    #host img {
+      max-width: 70%; /* Make the image responsive */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 16px; /* Add space below the image */
+    }
+  
+    #host .host-info {
+      text-align: center; /* Center the text */
+      padding: 0 20px; /* Add padding on the sides for spacing */
+    }
+  
+    .social-icons {
+      justify-content: center; /* Center the social icons */
+      margin-top: 16px; /* Add space above the icons */
+    }
+  
+    /* Stats Section */
+    .stats-section {
+      padding: 20px; /* Reduce padding */
+    }
+  
+    .stats-grid {
+      display: flex;
+      flex-direction: column; /* Stack the stats vertically */
+      align-items: center; /* Center the stats */
+      gap: 20px; /* Add space between the stats */
+    }
+  
+    .stat {
+      width: 100%; /* Make the stats full-width */
+      max-width: 300px; /* Limit the max width */
+      text-align: center; /* Center the text */
+    }
+  }
+  /* Media query for screens smaller than or equal to 480px */
+  @media (max-width: 480px) {
+    /* Benefits Section */
+    .benefits-section {
+      padding: 20px; /* Reduce padding for smaller screens */
+    }
+  
+    .features-grid {
+      display: flex;
+      flex-direction: column; /* Stack feature items vertically */
+      gap: 20px; /* Add space between each feature item */
+    }
+  
+    .feature-item {
+      width: 100%; /* Make each feature item full-width */
+      text-align: center; /* Center the text and icon */
+    }
+  
+    .icon {
+      margin: 0 auto 10px auto; /* Center the icon and add space below */
+    }
+  
+    .feature-title {
+      font-size: 1.2rem; /* Adjust font size for titles */
+      margin-bottom: 10px; /* Add some space below the title */
+    }
+  
+    .feature-description {
+      font-size: 1rem; /* Adjust font size for descriptions */
+    }
+  
+    .link {
+      font-size: 0.9rem; /* Adjust font size for the link */
+    }
+  }
+  /* Media query for screens smaller than or equal to 480px */
+   /* Contact Section */
+  /* @media (max-width: 480px) {
+   
+    .contact {
+      padding: 20px;
+    }
+  
+    .heading {
+      font-size: 1.8rem; 
+      margin-bottom: 20px; 
+    }
+  
+    .row {
+      flex-direction: column; 
+      align-items: center; 
+      gap: 20px; 
+  
+    }
+  
+    .map {
+      width: 100%; 
+      height: 300px; 
+    }
+  
+    form {
+      width: 100%; 
+      padding: 20px; 
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+    }
+  
+    form h3 {
+      font-size: 1.5rem; 
+      margin-bottom: 16px; 
+    }
+  
+    .form-group {
+      margin-bottom: 15px; 
+    }
+  
+    .form-group label {
+      font-size: 0.9rem; 
+    }
+  
+    .form-group input,
+    .form-group select {
+      font-size: 0.9rem; 
+      padding: 8px;
+    }
+  
+    .btn {
+      font-size: 1rem; 
+      padding: 10px 20px; 
+      width: 100%; 
+    }
+    .footer{
+      padding: 0%;
+      margin: 0%;
+      width: 100%;
+    }
+  }
+  
+    /* Footer Links Section */
+    @media (max-width: 480px) { 
+    .links {
+      display: grid; /* Use grid layout */
+      grid-template-columns: repeat(2, 1fr); /* 2 columns of equal width */
+      gap: 15px; /* Space between grid items */
+      justify-content: center; /* Center the grid within its container */
+      margin-top: 20px; /* Add spacing above the links */
+      padding: 0 20px; /* Add padding for better spacing */
+    }
+  
+    .links a {
+      display: flex; /* Flexbox for centering text */
+      align-items: center; /* Center text vertically */
+      justify-content: center; /* Center text horizontally */
+      font-size: 1rem; /* Adjust font size for readability */
+      padding: 10px 15px; /* Add padding for a button-like appearance */
+      text-align: center; /* Center align the text */
+      color: #ffffff; /* White text color */
+      background-color: #3a3f50; /* Button background color */
+      border-radius: 5px; /* Rounded corners for buttons */
+      text-decoration: none; /* Remove underline */
+      transition: all 0.3s ease; /* Smooth transition for hover effects */
+      padding-bottom: 90px;
+    }
+  
+    .links a:hover {
+      background-color: #ff6347; /* Change background color on hover */
+      transform: scale(1.05); /* Slightly enlarge button on hover */
+    }
+    .line{
+        width: 70%;
+    }
+  }
+  </style>
+<body>
+
+  
+<!-- Navbar -->
+<nav>
+  <div class="container">
+    <!-- Hamburger Icon for Mobile Screens (on the left) -->
+    <span class="hamburger" onclick="toggleMenu()">&#9776;</span>
+    <!-- Logo -->
+    <h2><a href="#" class="logo" style=" font-family: 'Work Sans';font-size: 22px">GR Network</a></h2> 
+    <!-- Navigation Links (Sidebar) -->
+    <ul class="nav-links">
+      <!-- Close Icon on the Right Side -->
+      <span class="close-icon" onclick="toggleMenu()">&times;</span>
+      <li><a href="index.html" onclick="toggleMenu()">Home</a></li>
+     
+      <li><a href="#host" onclick="toggleMenu()">Speaker</a></li>
+      <li><a href="#benefits" onclick="toggleMenu()">Benefits</a></li>
+      <li><a href="#contact" onclick="toggleMenu()">Contact</a></li>
+    </ul>
+    <a href="#contact" class="register-btn">Register Now</a>
+  </div>
+</nav>
+
+
+
+
+
+
+  <!-- Hero Section -->
+  <!-- <section class="hero-section" style="background-image: url('https://images.pexels.com/photos/1181261/pexels-photo-1181261.jpeg'); background-size: cover; background-position: center; height: 100vh;">
+    <div>
+      <h1>Join Our Amazing Event!</h1>
+      <p>Learn, network, and grow with the industry's best.</p>
+      <a href="#contact" class="cta-btn">Register Now</a>
+      <a href="#agenda" class="learn-more-btn">Learn More</a>
+    </div>
+</section> -->
+
+   <!-- Learning Section -->
+    <br>
+   <section class="learning-section" id="agenda">
+    <h2 style="color: aliceblue;">What You Will Learn</h2>
+    <p>Topics that will be covered in this webinar</p>
+
+    <div class="cards-container">
+        <div class="card">
+            <img src="images/web.jpeg" alt="Front-End Development">
+            <h3>Front-End Development</h3>
+            <p>Learn HTML, CSS, JavaScript, and frameworks like React to create stunning user interfaces and responsive websites.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/data.jpeg" alt="Back-End Development">
+            <h3>Back-End Development</h3>
+            <p>Discover the magic of server-side programming with Node.js, Python, and databases like MongoDB and MySQL.</p>
+        </div>
+
+        <div class="card">
+            <img src="images/full.jpeg" alt="Full-Stack Development">
+            <h3>Becoming a Full-Stack Developer</h3>
+            <p>Master front-end and back-end development and learn APIs to become a versatile web development expert.</p>
+        </div>
+
+        <div class="card">
+          <img src="https://i.ibb.co/PWpPSD7/Card-image-1.jpg" alt="data Analyst">
+          <h3> Data Analyst</h3>
+          <p>Master Data Analyst to learn APIs to become a versatile web development expert.
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. </p>
+      </div>
+
+    </div>
+
+</section>
+
+  
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div>
+      <p>Don't miss out on this great opportunity to learn and network!</p>
+      <button><a href="#contact">Get Your Ticket Now</button></a>
+    </div>
+  </section>
+
+<!-- About the Host -->
+<section id="host">
+  <h2>About the Host</h2>
+  <p>Meet the person behind the event.</p>
+  <div class="host-container">
+    <img src="images/performer-1.jpg" alt="Host Image">
+    <div class="host-info">
+      <h3>Surya</h3>
+      <h4>Senior Developer</h4>
+      <p>Surya is a seasoned event host with over 10 years of experience in the industry. He has brought together countless experts to share their insights with enthusiastic audiences.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt modi maxime neque quos labore aliquid distinctio ducimus sunt, similique eius porro vel, quo obcaecati accusamus tenetur asperiores beatae eaque eligendi? Dicta amet rerum eligendi aut quibusdam nostrum necessitatibus harum laboriosam rem ea, nam quisquam ratione optio sunt voluptas et consequuntur nesciunt voluptatibus quasi numquam eos? Omnis dolorum eaque beatae excepturi.</p>
+      <!-- Social Media Icons -->
+      <div class="social-icons">
+        <a href="https://www.instagram.com/gowthamraj_network/" target="_blank"><img src="images/instagram.jpeg" width="40" height="40" alt="Instagram Icon"></a>
+        <a href="https://www.youtube.com/@GOWTHAMRAJNETWORK" target="_blank"><img src="images/u tube.png" width="40" height="40" alt="YouTube Icon"></a>
+        <a href="#"target="_blank"><img src="images/facebook.png" width="40" height="40" alt="Facebook Icon"></a>
+        <a href="https://www.linkedin.com/company/gowthamrajnetwork/" target="_blank"><img src="images/linkedin.png" width="40" height="40" alt="LinkedIn Icon"></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+ 
+  <!-- Stats Section Start -->
+<div class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <!-- Stat - start -->
+      <div class="stat-card">
+        <div class="stat-value">50+</div>
+        <div class="stat-label">Webinar</div>
+      </div>
+      <!-- Stat - end -->
+
+      <!-- Stat - start -->
+      <div class="stat-card">
+        <div class="stat-value">5000+</div>
+        <div class="stat-label">Attended</div>
+      </div>
+      <!-- Stat - end -->
+
+      <!-- Stat - start -->
+      <div class="stat-card">
+        <div class="stat-value">400+</div>
+        <div class="stat-label">Hours</div>
+      </div>
+      <!-- Stat - end -->
+
+      <!-- Stat - start -->
+      <div class="stat-card">
+        <div class="stat-value">6000+</div>
+        <div class="stat-label">Subscriber</div>
+      </div>
+      <!-- Stat - end -->
+    </div>
+  </div>
+</div>
+
+  
+
+    <!-- Benefits Section -->
+<div id="benefits" class="benefits-section">
+  <div class="container">
+    <!-- Text Section -->
+    <div class="text-center">
+      <h2 class="title">More reasons to signup</h2>
+      <p class="description">Benefits of joining this webinar</p>
+    </div>
+
+    <div class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          </svg>
+        </div>
+        <div class="text-content">
+          <h3 class="feature-title">Growth</h3>
+          <p class="feature-description">Expand your knowledge and stay ahead in the tech world.</p>
+          <a href="#" class="link">More</a>
+        </div>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+          </svg>
+        </div>
+        <div class="text-content">
+          <h3 class="feature-title">Expertise</h3>
+          <p class="feature-description">Learn from industry experts and gain valuable insights.</p>
+          <a href="#" class="link">More</a>
+        </div>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+          </svg>
+        </div>
+        <div class="text-content">
+          <h3 class="feature-title">Resources</h3>
+          <p class="feature-description">Access exclusive tools and resources to enhance your projects.</p>
+          <a href="#" class="link">More</a>
+        </div>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <div class="text-content">
+          <h3 class="feature-title">Empowerment</h3>
+          <p class="feature-description">Elevate your web development skills to new heights.</p>
+          <a href="#" class="link">More</a>
+        </div>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="feature-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <div class="text-content">
+          <h3 class="feature-title">Networking</h3>
+          <p class="feature-description">Connect with like-minded developers and build valuable connections.</p>
+          <a href="#" class="link">More</a>
+        </div>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="feature-item">
+        <div class="icon">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+          </svg>
+        </div>
+        <div class="text-content">
+          <h3 class="feature-title">Opportunities</h3>
+          <p class="feature-description">Unlock new career opportunities with advanced web development skills.</p>
+          <a href="#" class="link">More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+   
+
+  
+  
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <h2>What Our Clients Say</h2>
+      <div class="testimonials-grid">
+        <div class="testimonial">
+            <img src="images/performer-2.jpg">
+          <p>"This company transformed our business with their amazing service. Highly recommend!"
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui, dicta.
+          </p>
+          <div class="author">- John Doe, CEO</div>
+        </div>
+        <div class="testimonial">
+            <img src="images/performer-3.jpg">
+          <p>"Their dedication and expertise have been a game-changer for our company."</p>
+          <div class="author">- Jane Smith, Marketing Manager</div>
+        </div>
+        <div class="testimonial">
+            <img src="images/performer-1.jpg">
+          <p>"Professional, efficient, and innovative. We're extremely satisfied with their work!"</p>
+          <div class="author">- Alex Johnson, CTO</div>
+        </div>
+      </div>
+    </section>
+
+<!-- contact section starts  -->
+<section class="contact" id="contact">
+  <h1 class="heading">Contact Us</h1>
+  <div class="row">
+      <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2038864.9124989216!2d76.29740909101524!3d9.724779855779124!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9de87ad84703f%3A0x15eb8f900655b911!2sPalani%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1711185189491!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+      <form action="">
+          <h3>Join the Webinar</h3>
+          <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+              <label for="how">How did you find us?</label>
+              <select id="how" name="how" required>
+                  <option value="">Select an option</option>
+                  <option value="search_engine">Search Engine</option>
+                  <option value="social_media">Social Media</option>
+                  <option value="word_of_mouth">Word of Mouth</option>
+                  <option value="other">Other</option>
+              </select>
+          </div>
+
+          <input type="submit" value="Join Now" class="btn">
+      </form>
+  </div>
+</section>
+
+
+<script>
+  // Toggle the menu when the hamburger icon is clicked
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('open');
+  }
+  
+  // Close the menu when a link is clicked
+  function closeMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.remove('open');
+  }
+  
+  
+  function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('open'); // Toggle the open class to show/hide sidebar
+  }</script>
+
+</body>
+</html>
